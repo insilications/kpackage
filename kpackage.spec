@@ -6,7 +6,7 @@
 #
 Name     : kpackage
 Version  : 5.49.0
-Release  : 2
+Release  : 3
 URL      : https://download.kde.org/stable/frameworks/5.49/kpackage-5.49.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.49/kpackage-5.49.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.49/kpackage-5.49.0.tar.xz.sig
@@ -22,6 +22,9 @@ Requires: kpackage-man
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : karchive-dev
+BuildRequires : kdoctools
+BuildRequires : kdoctools-dev
+BuildRequires : ki18n-dev
 BuildRequires : qtbase-dev qtbase-extras mesa-dev
 
 %description
@@ -101,7 +104,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534099373
+export SOURCE_DATE_EPOCH=1535431843
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -109,7 +112,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1534099373
+export SOURCE_DATE_EPOCH=1535431843
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kpackage
 cp COPYING %{buildroot}/usr/share/doc/kpackage/COPYING
@@ -132,6 +135,7 @@ popd
 /usr/share/kservicetypes5/kpackage-generic.desktop
 /usr/share/kservicetypes5/kpackage-genericqml.desktop
 /usr/share/kservicetypes5/kpackage-packagestructure.desktop
+/usr/share/xdg/kpackage.categories
 
 %files dev
 %defattr(-,root,root,-)
