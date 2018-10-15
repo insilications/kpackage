@@ -6,7 +6,7 @@
 #
 Name     : kpackage
 Version  : 5.51.0
-Release  : 6
+Release  : 7
 URL      : https://download.kde.org/stable/frameworks/5.51/kpackage-5.51.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.51/kpackage-5.51.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.51/kpackage-5.51.0.tar.xz.sig
@@ -100,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1539617143
+export SOURCE_DATE_EPOCH=1539639370
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -108,7 +108,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1539617143
+export SOURCE_DATE_EPOCH=1539639370
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kpackage
 cp COPYING %{buildroot}/usr/share/package-licenses/kpackage/COPYING
