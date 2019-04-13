@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kpackage
-Version  : 5.56.0
-Release  : 16
-URL      : https://download.kde.org/stable/frameworks/5.56/kpackage-5.56.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.56/kpackage-5.56.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.56/kpackage-5.56.0.tar.xz.sig
+Version  : 5.57.0
+Release  : 17
+URL      : https://download.kde.org/stable/frameworks/5.57/kpackage-5.57.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.57/kpackage-5.57.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.57/kpackage-5.57.0.tar.xz.sig
 Summary  : Framework that lets applications manage user installable packages of non-binary assets
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -93,23 +93,22 @@ man components for the kpackage package.
 
 
 %prep
-%setup -q -n kpackage-5.56.0
+%setup -q -n kpackage-5.57.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552156262
+export SOURCE_DATE_EPOCH=1555188128
 mkdir -p clr-build
 pushd clr-build
-export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1552156262
+export SOURCE_DATE_EPOCH=1555188128
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kpackage
 cp COPYING %{buildroot}/usr/share/package-licenses/kpackage/COPYING
@@ -150,13 +149,15 @@ popd
 /usr/lib64/cmake/KF5Package/KF5PackageMacros.cmake
 /usr/lib64/cmake/KF5Package/KF5PackageTargets-relwithdebinfo.cmake
 /usr/lib64/cmake/KF5Package/KF5PackageTargets.cmake
+/usr/lib64/cmake/KF5Package/KF5PackageToolsTargets-relwithdebinfo.cmake
+/usr/lib64/cmake/KF5Package/KF5PackageToolsTargets.cmake
 /usr/lib64/cmake/KF5Package/qrc.cmake
 /usr/lib64/libKF5Package.so
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Package.so.5
-/usr/lib64/libKF5Package.so.5.56.0
+/usr/lib64/libKF5Package.so.5.57.0
 
 %files license
 %defattr(0644,root,root,0755)
