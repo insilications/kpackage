@@ -5,12 +5,12 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kpackage
-Version  : 5.69.0
-Release  : 30
-URL      : https://download.kde.org/stable/frameworks/5.69/kpackage-5.69.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.69/kpackage-5.69.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.69/kpackage-5.69.0.tar.xz.sig
-Summary  : Framework that lets applications manage user installable packages of non-binary assets
+Version  : 5.70.0
+Release  : 31
+URL      : https://download.kde.org/stable/frameworks/5.70/kpackage-5.70.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.70/kpackage-5.70.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.70/kpackage-5.70.0.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
 Requires: kpackage-bin = %{version}-%{release}
@@ -21,6 +21,12 @@ Requires: kpackage-locales = %{version}-%{release}
 Requires: kpackage-man = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : extra-cmake-modules-data
+BuildRequires : karchive-dev
+BuildRequires : kcoreaddons-dev
+BuildRequires : kdoctools-dev
+BuildRequires : ki18n-dev
+BuildRequires : qtbase-dev
 BuildRequires : qtbase-dev mesa-dev
 
 %description
@@ -52,7 +58,6 @@ Requires: kpackage-lib = %{version}-%{release}
 Requires: kpackage-bin = %{version}-%{release}
 Requires: kpackage-data = %{version}-%{release}
 Provides: kpackage-devel = %{version}-%{release}
-Requires: kpackage = %{version}-%{release}
 Requires: kpackage = %{version}-%{release}
 
 %description dev
@@ -94,37 +99,36 @@ man components for the kpackage package.
 
 
 %prep
-%setup -q -n kpackage-5.69.0
-cd %{_builddir}/kpackage-5.69.0
+%setup -q -n kpackage-5.70.0
+cd %{_builddir}/kpackage-5.70.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1586879682
+export SOURCE_DATE_EPOCH=1589214236
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1586879682
+export SOURCE_DATE_EPOCH=1589214236
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kpackage
-cp %{_builddir}/kpackage-5.69.0/COPYING %{buildroot}/usr/share/package-licenses/kpackage/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/kpackage-5.69.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kpackage/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/kpackage-5.69.0/src/kpackage/COPYING.LIB %{buildroot}/usr/share/package-licenses/kpackage/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kpackage-5.70.0/COPYING %{buildroot}/usr/share/package-licenses/kpackage/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kpackage-5.70.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kpackage/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kpackage-5.70.0/src/kpackage/COPYING.LIB %{buildroot}/usr/share/package-licenses/kpackage/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -168,7 +172,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Package.so.5
-/usr/lib64/libKF5Package.so.5.69.0
+/usr/lib64/libKF5Package.so.5.70.0
 
 %files license
 %defattr(0644,root,root,0755)
