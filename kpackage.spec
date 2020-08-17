@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : kpackage
-Version  : 5.71.0
-Release  : 32
-URL      : https://download.kde.org/stable/frameworks/5.71/kpackage-5.71.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.71/kpackage-5.71.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.71/kpackage-5.71.0.tar.xz.sig
+Version  : 5.73.0
+Release  : 33
+URL      : https://download.kde.org/stable/frameworks/5.73/kpackage-5.73.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.73/kpackage-5.73.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.73/kpackage-5.73.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -99,15 +99,15 @@ man components for the kpackage package.
 
 
 %prep
-%setup -q -n kpackage-5.71.0
-cd %{_builddir}/kpackage-5.71.0
+%setup -q -n kpackage-5.73.0
+cd %{_builddir}/kpackage-5.73.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1592248444
+export SOURCE_DATE_EPOCH=1597701516
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -119,16 +119,16 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1592248444
+export SOURCE_DATE_EPOCH=1597701516
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kpackage
-cp %{_builddir}/kpackage-5.71.0/COPYING %{buildroot}/usr/share/package-licenses/kpackage/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/kpackage-5.71.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kpackage/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/kpackage-5.71.0/src/kpackage/COPYING.LIB %{buildroot}/usr/share/package-licenses/kpackage/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kpackage-5.73.0/COPYING %{buildroot}/usr/share/package-licenses/kpackage/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kpackage-5.73.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kpackage/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kpackage-5.73.0/src/kpackage/COPYING.LIB %{buildroot}/usr/share/package-licenses/kpackage/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -147,6 +147,7 @@ popd
 /usr/share/kservicetypes5/kpackage-genericqml.desktop
 /usr/share/kservicetypes5/kpackage-packagestructure.desktop
 /usr/share/qlogging-categories5/kpackage.categories
+/usr/share/qlogging-categories5/kpackage.renamecategories
 
 %files dev
 %defattr(-,root,root,-)
@@ -172,7 +173,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Package.so.5
-/usr/lib64/libKF5Package.so.5.71.0
+/usr/lib64/libKF5Package.so.5.73.0
 
 %files license
 %defattr(0644,root,root,0755)
@@ -184,6 +185,7 @@ popd
 /usr/share/man/ca/man1/kpackagetool5.1
 /usr/share/man/de/man1/kpackagetool5.1
 /usr/share/man/es/man1/kpackagetool5.1
+/usr/share/man/fr/man1/kpackagetool5.1
 /usr/share/man/it/man1/kpackagetool5.1
 /usr/share/man/man1/kpackagetool5.1
 /usr/share/man/nl/man1/kpackagetool5.1
