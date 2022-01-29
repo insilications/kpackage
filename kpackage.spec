@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : kpackage
 Version  : 5.90.0
-Release  : 304
+Release  : 306
 URL      : https://download.kde.org/stable/frameworks/5.90/kpackage-5.90.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.90/kpackage-5.90.0.tar.xz
 Summary  : No detailed summary available
@@ -96,7 +96,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1643434812
+export SOURCE_DATE_EPOCH=1643438137
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -170,7 +170,7 @@ make  %{?_smp_mflags}    V=1 VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1643434812
+export SOURCE_DATE_EPOCH=1643438137
 rm -rf %{buildroot}
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
