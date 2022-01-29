@@ -1,5 +1,5 @@
 PKG_NAME := kpackage
-URL = https://invent.kde.org/frameworks/kpackage.git
+URL = https://download.kde.org/stable/frameworks/5.90/kpackage-5.90.0.tar.xz
 ARCHIVES = 
 ARCHIVES_GIT = 
 
